@@ -5,7 +5,9 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BalanceResource\Pages;
 use App\Filament\Resources\BalanceResource\RelationManagers;
 use App\Models\Balance;
+use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -26,7 +28,14 @@ class BalanceResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Select::make('user_id')
+                    ->label('User')
+                    ->options(User::all()->pluck('email', 'id'))
+                    ->searchable()
+                    ->preload()
+                    ->columnSpanFull()
+                    ->required()
+                    ->disabledOn('edit'),
             ]);
     }
 
