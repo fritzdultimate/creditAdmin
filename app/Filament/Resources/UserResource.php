@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Support\RawJs;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class UserResource extends Resource
@@ -70,7 +71,21 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('username')
+                    ->searchable(),
+                TextColumn::make('email')
+                    ->searchable(),
+                TextColumn::make('email_verified_at')
+                    ->label('Verification Date'),
+                TextColumn::make('firstname')
+                    ->searchable(),
+                TextColumn::make('lastname')
+                    ->searchable(),
+                TextColumn::make('country')
+                    ->searchable(),
+
+                TextColumn::make('created_at')
+                    ->label('Registration Date'),
             ])
             ->filters([
                 //
