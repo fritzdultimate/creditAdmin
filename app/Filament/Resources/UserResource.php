@@ -107,6 +107,19 @@ class UserResource extends Resource
                         ->send();
                 })
                 ->hidden(fn (User $record): bool => $record->is_suspended),
+                Tables\Actions\Action::make('unsuspend')
+                    ->action(function (User $record) {
+                        $record->is_suspended = false;
+                        $record->save();
+                        Notification::make()
+                            ->title('Success')
+                            ->iconColor('success')
+                            ->color('success')
+                            ->icon('heroicon-o-check-circle')
+                            ->body('User unsuspended successfully')
+                            ->send();
+                    })
+                    ->visible(fn (User $record): bool => $record->is_suspended),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
