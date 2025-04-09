@@ -8,8 +8,10 @@ use App\Models\Balance;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\RawJs;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -36,6 +38,22 @@ class BalanceResource extends Resource
                     ->columnSpanFull()
                     ->required()
                     ->disabledOn('edit'),
+
+                    TextInput::make('balance')
+                        ->label('Main Balance')
+                        ->prefix('$')
+                        ->mask(RawJs::make('$money($input)'))
+                        ->stripCharacters(',')
+                        ->numeric()
+                        ->default(0.00),
+
+                    TextInput::make('locked_balance')
+                        ->label('Invested Balance')
+                        ->prefix('$')
+                        ->mask(RawJs::make('$money($input)'))
+                        ->stripCharacters(',')
+                        ->numeric()
+                        ->default(0.00),
             ]);
     }
 
@@ -45,8 +63,17 @@ class BalanceResource extends Resource
         ->query(Balance::with('user'))
             ->columns([
                 TextColumn::make('user.username')
+                    ->label('User')
                 ->searchable(['email', 'username'])
                 ->description(fn(Model $record) => $record->user ? $record->user->email : 'No User'),
+
+                TextColumn::make('balance')
+                    ->label('Main Balance')
+                    ->money('USD'),
+                
+                TextColumn::make('locked_balance')
+                    ->label('Invested Balance')
+                    ->money('USD')
             ])
             ->filters([
                 //
