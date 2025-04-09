@@ -3,27 +3,66 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
-use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\RawJs;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Members';
+
+    // public static  function shouldRegisterNavigation(): bool {
+        // return auth('admin')->user()->type === AdminTypes::SUPER_ADMIN->value;
+    // }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                TextInput::make('username'),
+                TextInput::make('email'),
+                TextInput::make('firstname'),
+                TextInput::make('lastname'),
+                TextInput::make('country'),
+                // TextInput::make('topup_balance')
+                //     ->prefix('$')
+                //     ->mask(RawJs::make('$money($input)'))
+                //     ->stripCharacters(',')
+                //     ->numeric()
+                //     ->default(0.00),
+                DatePicker::make('dob'),
+                TextInput::make('place_of_birth'),
+                TextInput::make('residential_address'),
+                TextInput::make('city'),
+                TextInput::make('postal_code'),
+                TextInput::make('occupation'),
+                // Select::make('country')
+                //     ->options(function() {
+                //         $countries = config('countries');
+                //         return array_combine(
+                //             array_keys($countries), 
+                //             array_column($countries, 'name')
+                //         );
+                //     })
+                //     ->searchable()
+                //     ->native(false),
+                // TextInput::make('language'),
+                TextInput::make('address'),
+                TextInput::make('phone'),
+                TextInput::make('password')
+                ->hiddenOn('edit'),
+                DatePicker::make('created_at')
+                    ->label('Registration date')
+                ,
             ]);
     }
 
