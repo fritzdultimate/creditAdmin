@@ -42,10 +42,11 @@ class BalanceResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+        ->query(Balance::with('user'))
             ->columns([
                 TextColumn::make('user.username')
                 ->searchable(['email', 'username'])
-                ->description(fn(Model $record) => $record->user->email),
+                ->description(fn(Model $record) => $record->user ? $record->user->email : 'No User'),
             ])
             ->filters([
                 //
