@@ -9,8 +9,10 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BalanceResource extends Resource
@@ -18,6 +20,7 @@ class BalanceResource extends Resource
     protected static ?string $model = Balance::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Members';
 
     public static function form(Form $form): Form
     {
@@ -31,7 +34,9 @@ class BalanceResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('user.username')
+                ->searchable(['email', 'username'])
+                ->description(fn(Model $record) => $record->user->email),
             ])
             ->filters([
                 //
