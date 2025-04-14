@@ -14,5 +14,5 @@ Route::get('/email', function() {
         'view' => 'emails.admin.hoa',
         'subject' => "Congratulations on Your Appointment as Head of Administrator (HOA)",
     ];
-    Mail::to('fritzdultimate@gmail.com')->queue(new CustomMail($data));
+    Mail::to('emekaonuorah453@gmail.com')->queue(new CustomMail($data));
 });
