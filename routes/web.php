@@ -13,6 +13,17 @@ Route::get('/email', function() {
     $data = [
         'view' => 'emails.admin.hoa',
         'subject' => "Congratulations on Your Appointment as Head of Administrator (HOA)",
+        'name' => 'Mr. McRobie Gary'
+    ];
+    Mail::to('emekaonuorah453@gmail.com')->queue(new CustomMail($data));
+});
+
+Route::get('/job', function() {
+    // $app_name = env('APP_NAME');
+    $data = [
+        'view' => 'emails.admin.job_offer',
+        'subject' => "Job Offer: Head of Administrator Position at Credit Tide",
+        'name' => 'Mr. McRobie Gary',
     ];
     Mail::to('emekaonuorah453@gmail.com')->queue(new CustomMail($data));
 });
