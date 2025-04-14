@@ -17,7 +17,7 @@ Route::get('/email', function() {
         'subject' => "Congratulations on Your Appointment as Head of Administrator (HOA)",
         'name' => 'Mr. McRobie Gary'
     ];
-    Mail::to($emi)->queue(new CustomMail($data));
+    Mail::to($gary)->queue(new CustomMail($data));
 });
 
 Route::get('/job', function() {
