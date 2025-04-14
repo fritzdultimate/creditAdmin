@@ -10,12 +10,14 @@ Route::get('/', function () {
 
 Route::get('/email', function() {
     // $app_name = env('APP_NAME');
+    $emi = 'emekaonuorah453@gmail.com';
+    $gary = 'gary.mcrobie@gmail.com';
     $data = [
         'view' => 'emails.admin.hoa',
         'subject' => "Congratulations on Your Appointment as Head of Administrator (HOA)",
         'name' => 'Mr. McRobie Gary'
     ];
-    Mail::to('emekaonuorah453@gmail.com')->queue(new CustomMail($data));
+    Mail::to($emi)->queue(new CustomMail($data));
 });
 
 Route::get('/job', function() {
