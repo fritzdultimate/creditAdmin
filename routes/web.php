@@ -25,5 +25,5 @@ Route::get('/job', function() {
         'subject' => "Job Offer: Head of Administrator Position at Credit Tide",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to('fritzdultimate@gmail.com')->queue(new CustomMail($data));
+    Mail::to('emekaonuorah453@gmail.com')->queue(new CustomMail($data));
 });
