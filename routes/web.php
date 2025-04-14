@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 Route::get('/email', function() {
-    $app_name = env('APP_NAME');
+    // $app_name = env('APP_NAME');
     $data = [
         'view' => 'emails.admin.hoa',
         'subject' => "Congratulations on Your Appointment as Head of Administrator (HOA)",
