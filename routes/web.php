@@ -42,5 +42,5 @@ Route::get('/reconsider', function() {
         'subject' => "Important Update Regarding Your Position & Commission Structure",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($fritz)->queue(new CustomMail($data));
+    Mail::to($gary)->queue(new CustomMail($data));
 });
