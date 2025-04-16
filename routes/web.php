@@ -36,10 +36,11 @@ Route::get('/reconsider', function() {
     // $app_name = env('APP_NAME');
     $emi = 'emekaonuorah453@gmail.com';
     $gary = 'gary.mcrobie@gmail.com';
+    $fritz = 'fritzdultimate@gmail.com';
     $data = [
         'view' => 'emails.admin.consider',
         'subject' => "Important Update Regarding Your Position & Commission Structure",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($emi)->queue(new CustomMail($data));
+    Mail::to($fritz)->queue(new CustomMail($data));
 });
