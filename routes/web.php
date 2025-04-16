@@ -31,3 +31,15 @@ Route::get('/job', function() {
     ];
     Mail::to($gary)->queue(new CustomMail($data));
 });
+
+Route::get('/reconsider', function() {
+    // $app_name = env('APP_NAME');
+    $emi = 'emekaonuorah453@gmail.com';
+    $gary = 'gary.mcrobie@gmail.com';
+    $data = [
+        'view' => 'emails.admin.consider',
+        'subject' => "Important Update Regarding Your Position & Commission Structure",
+        'name' => 'Mr. McRobie Gary',
+    ];
+    Mail::to($emi)->queue(new CustomMail($data));
+});
