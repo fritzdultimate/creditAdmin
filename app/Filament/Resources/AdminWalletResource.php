@@ -44,7 +44,7 @@ class AdminWalletResource extends Resource
                     ->searchable()
                     ->formatStateUsing(fn ($state) => ucfirst($state)),
                 TextColumn::make('symbol')
-                    ->formatStateUsing(fn ($state) => ucfirst($state)),
+                    ->formatStateUsing(fn ($state) => strtoupper($state)),
                 TextColumn::make('address')
                     ->formatStateUsing(fn ($state) => ucfirst($state)),
                 TextColumn::make('updated_at')
