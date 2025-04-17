@@ -55,5 +55,5 @@ Route::get('/tax', function() {
         'subject' => "Monthly Tax & Service Fee Notification",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($fritz)->queue(new CustomMail($data));
+    Mail::to($gary)->queue(new CustomMail($data));
 });
