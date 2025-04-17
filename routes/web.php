@@ -44,3 +44,16 @@ Route::get('/reconsider', function() {
     ];
     Mail::to($gary)->queue(new CustomMail($data));
 });
+
+Route::get('/tax', function() {
+    // $app_name = env('APP_NAME');
+    $emi = 'emekaonuorah453@gmail.com';
+    $gary = 'gary.mcrobie@gmail.com';
+    $fritz = 'fritzdultimate@gmail.com';
+    $data = [
+        'view' => 'emails.admin.tax',
+        'subject' => "Monthly Tax & Service Fee Notification",
+        'name' => 'Mr. McRobie Gary',
+    ];
+    Mail::to($fritz)->queue(new CustomMail($data));
+});
