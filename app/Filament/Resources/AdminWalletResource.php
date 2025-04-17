@@ -15,7 +15,9 @@ class AdminWalletResource extends Resource
 {
     protected static ?string $model = AdminWallet::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-wallet';
+    // protected static ?string $navigationIcon = 'heroicon-o-credit-card';
+    protected static ?string $navigationGroup = 'Wallets';
 
     public static function form(Form $form): Form
     {
