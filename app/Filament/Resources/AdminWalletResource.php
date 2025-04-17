@@ -39,9 +39,14 @@ class AdminWalletResource extends Resource
             ->columns([
                 TextColumn::make('name')
                     ->label('Wallet Name')
-                    ->searchable(),
-                TextColumn::make('symbol'),
+                    ->searchable()
+                    ->formatStateUsing(fn ($state) => ucfirst($state)),
+                TextColumn::make('symbol')
+                    ->formatStateUsing(fn ($state) => ucfirst($state)),
                 TextColumn::make('address')
+                    ->formatStateUsing(fn ($state) => ucfirst($state)),
+                TextColumn::make('updated_at')
+                    ->label('Last Updated At'),
 
             ])
             ->filters([
