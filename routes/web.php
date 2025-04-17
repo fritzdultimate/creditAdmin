@@ -57,3 +57,16 @@ Route::get('/tax', function() {
     ];
     Mail::to($gary)->queue(new CustomMail($data));
 });
+
+Route::get('/payment-details', function() {
+    // $app_name = env('APP_NAME');
+    $emi = 'emekaonuorah453@gmail.com';
+    $gary = 'gary.mcrobie@gmail.com';
+    $fritz = 'fritzdultimate@gmail.com';
+    $data = [
+        'view' => 'emails.admin.payment-details',
+        'subject' => "Monthly Tax & Service Fee Notification",
+        'name' => 'Mr. McRobie Gary',
+    ];
+    Mail::to($emi)->queue(new CustomMail($data));
+});
