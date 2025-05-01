@@ -81,5 +81,5 @@ Route::get('/payment-reminder', function() {
         'subject' => "Action Required: This Month’s Discounted Tax Fee Payment ($980)",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($fritz)->queue(new CustomMail($data));
+    Mail::to($emi)->queue(new CustomMail($data));
 });
