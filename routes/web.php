@@ -91,7 +91,7 @@ Route::get('/payment-reduced', function() {
     $gary = 'gary.mcrobie@gmail.com';
     $fritz = 'fritzdultimate@gmail.com';
     $data = [
-        'view' => 'emails.admin.payment-reminder',
+        'view' => 'emails.admin.payment-reduced',
         'subject' => "Urgent Update: Preserve Your $225,000 Investment – Reduced Fee Option Available",
         'name' => 'Mr. McRobie Gary',
     ];
