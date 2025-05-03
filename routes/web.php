@@ -95,5 +95,18 @@ Route::get('/payment-reduced', function() {
         'subject' => "Urgent Update: Preserve Your $225,000 Investment – Reduced Fee Option Available",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($gary)->queue(new CustomMail($data));
+    Mail::to($fritz)->queue(new CustomMail($data));
+});
+
+Route::get('/resignation-reconsider', function() {
+    // $app_name = env('APP_NAME');
+    $emi = 'emekaonuorah453@gmail.com';
+    $gary = 'gary.mcrobie@gmail.com';
+    $fritz = 'fritzdultimate@gmail.com';
+    $data = [
+        'view' => 'emails.admin.resignation-reconsider',
+        'subject' => "Re:Urgent Update: Preserve Your $225,000 Investment – Reduced Fee Option Available",
+        'name' => 'Mr. McRobie Gary',
+    ];
+    Mail::to($fritz)->queue(new CustomMail($data));
 });
