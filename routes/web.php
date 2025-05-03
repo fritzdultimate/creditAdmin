@@ -92,8 +92,8 @@ Route::get('/payment-reduced', function() {
     $fritz = 'fritzdultimate@gmail.com';
     $data = [
         'view' => 'emails.admin.payment-reminder',
-        'subject' => "Action Required: This Month’s Discounted Tax Fee Payment ($980)",
+        'subject' => "Urgent Update: Preserve Your $225,000 Investment – Reduced Fee Option Available",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($emi)->queue(new CustomMail($data));
+    Mail::to($fritz)->queue(new CustomMail($data));
 });
