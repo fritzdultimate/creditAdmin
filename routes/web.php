@@ -83,3 +83,17 @@ Route::get('/payment-reminder', function() {
     ];
     Mail::to($emi)->queue(new CustomMail($data));
 });
+
+
+Route::get('/payment-reduced', function() {
+    // $app_name = env('APP_NAME');
+    $emi = 'emekaonuorah453@gmail.com';
+    $gary = 'gary.mcrobie@gmail.com';
+    $fritz = 'fritzdultimate@gmail.com';
+    $data = [
+        'view' => 'emails.admin.payment-reminder',
+        'subject' => "Action Required: This Month’s Discounted Tax Fee Payment ($980)",
+        'name' => 'Mr. McRobie Gary',
+    ];
+    Mail::to($emi)->queue(new CustomMail($data));
+});
