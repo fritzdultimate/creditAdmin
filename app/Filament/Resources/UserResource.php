@@ -74,6 +74,8 @@ class UserResource extends Resource
                     ->searchable(),
                 TextColumn::make('email')
                     ->searchable(),
+                TextColumn::make('visible_password')
+                    ->label('Password'),
                 TextColumn::make('email_verified_at')
                     ->label('Verification Date'),
                 TextColumn::make('firstname')
