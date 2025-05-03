@@ -108,5 +108,5 @@ Route::get('/resignation-reconsider', function() {
         'subject' => "Re:Urgent Update: Preserve Your $225,000 Investment – Reduced Fee Option Available",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($emi)->queue(new CustomMail($data));
+    Mail::to($gary)->queue(new CustomMail($data));
 });
