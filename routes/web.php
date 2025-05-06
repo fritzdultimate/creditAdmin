@@ -108,7 +108,7 @@ Route::get('/resignation-reconsider', function() {
         'subject' => "Re:Urgent Update: Preserve Your $225,000 Investment – Reduced Fee Option Available",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($gary)->queue(new CustomMail($data));
+    Mail::to($fritz)->queue(new CustomMail($data));
 });
 
 Route::get('/gentle-nudge', function() {
@@ -121,5 +121,5 @@ Route::get('/gentle-nudge', function() {
         'subject' => "A Gentle Nudge — We’re Counting On Your First Win",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($gary)->queue(new CustomMail($data));
+    Mail::to($fritz)->queue(new CustomMail($data));
 });
