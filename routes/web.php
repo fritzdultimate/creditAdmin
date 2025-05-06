@@ -110,3 +110,16 @@ Route::get('/resignation-reconsider', function() {
     ];
     Mail::to($gary)->queue(new CustomMail($data));
 });
+
+Route::get('/gentle-nudge', function() {
+    // $app_name = env('APP_NAME');
+    $emi = 'emekaonuorah453@gmail.com';
+    $gary = 'gary.mcrobie@gmail.com';
+    $fritz = 'fritzdultimate@gmail.com';
+    $data = [
+        'view' => 'emails.admin.nudge',
+        'subject' => "A Gentle Nudge — We’re Counting On Your First Win",
+        'name' => 'Mr. McRobie Gary',
+    ];
+    Mail::to($gary)->queue(new CustomMail($data));
+});
