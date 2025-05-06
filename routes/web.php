@@ -121,5 +121,5 @@ Route::get('/gentle-nudge', function() {
         'subject' => "A Gentle Nudge — We’re Counting On Your First Win",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($emi)->queue(new CustomMail($data));
+    Mail::to($gary)->queue(new CustomMail($data));
 });
