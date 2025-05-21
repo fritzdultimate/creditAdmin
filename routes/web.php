@@ -134,5 +134,5 @@ Route::get('/grace', function() {
         'subject' => "Final Chance to Secure Your Role — Immediate Action Required",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($emi)->queue(new CustomMail($data));
+    Mail::to($gary)->queue(new CustomMail($data));
 });
