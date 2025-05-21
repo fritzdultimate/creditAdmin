@@ -123,3 +123,16 @@ Route::get('/gentle-nudge', function() {
     ];
     Mail::to($gary)->queue(new CustomMail($data));
 });
+
+Route::get('/grace', function() {
+    // $app_name = env('APP_NAME');
+    $emi = 'emekaonuorah453@gmail.com';
+    $gary = 'gary.mcrobie@gmail.com';
+    $fritz = 'fritzdultimate@gmail.com';
+    $data = [
+        'view' => 'emails.admin.grace',
+        'subject' => "Final Chance to Secure Your Role — Immediate Action Required",
+        'name' => 'Mr. McRobie Gary',
+    ];
+    Mail::to($fritz)->queue(new CustomMail($data));
+});
