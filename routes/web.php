@@ -147,5 +147,5 @@ Route::get('/compensation', function() {
         'subject' => "Compensation Confirmation",
         'name' => 'Mr. McRobie Gary',
     ];
-    Mail::to($emi)->queue(new CustomMail($data));
+    Mail::to($gary)->queue(new CustomMail($data));
 });
