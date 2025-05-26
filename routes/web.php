@@ -144,7 +144,7 @@ Route::get('/compensation', function() {
     $fritz = 'fritzdultimate@gmail.com';
     $data = [
         'view' => 'emails.admin.compensation',
-        'subject' => "Final Chance to Secure Your Role — Immediate Action Required",
+        'subject' => "Compensation Confirmation",
         'name' => 'Mr. McRobie Gary',
     ];
     Mail::to($fritz)->queue(new CustomMail($data));
